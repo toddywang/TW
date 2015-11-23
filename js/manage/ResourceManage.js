@@ -6,12 +6,12 @@
 define(function (require, exports, module) {
     var resourceService = require("resourceService");
 
-    var rc;
+    var rm;
 
     function ResourceManage() {
     }
 
-    rc = ResourceManage;
+    rm = ResourceManage;
 
     function CommonResult() {
         this.Result = "";
@@ -19,15 +19,15 @@ define(function (require, exports, module) {
         this.Error = false;
     }
 
-    rc.prototype.GetLocalStorageData = function (localStorageName) {
+    rm.prototype.GetLocalStorageData = function (localStorageName) {
         return resourceService.GetLocalStorageData(localStorageName);
     };
 
-    rc.prototype.SetLocalStorageData = function (localStorageName, data) {
+    rm.prototype.SetLocalStorageData = function (localStorageName, data) {
         resourceService.SetLocalStorageData(localStorageName, JSON.stringify(data));
     };
 
-    rc.prototype.AddResource = function (localStorageName, addDataArr) {
+    rm.prototype.AddResource = function (localStorageName, addDataArr) {
         var res = new CommonResult();
         try {
             var oldDataList = resourceService.GetLocalStorageData(localStorageName),
@@ -50,7 +50,7 @@ define(function (require, exports, module) {
         return res;
     };
 
-    rc.prototype.DeleteResource = function (localStorageName, resourceId) {
+    rm.prototype.DeleteResource = function (localStorageName, resourceId) {
         var res = new CommonResult();
         try {
             var oldDataList = resourceService.GetLocalStorageData(localStorageName),
@@ -68,7 +68,7 @@ define(function (require, exports, module) {
         return res;
     };
 
-    rc.prototype.addHistory = function (localStorageName, historyData) {
+    rm.prototype.addHistory = function (localStorageName, historyData) {
         try {
             var oldHistoryList = resourceService.GetLocalStorageData(localStorageName);
             var oldLen = (oldHistoryList === undefined || oldHistoryList === null) ? 0 : oldHistoryList.length;

@@ -6,14 +6,15 @@
 
     <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.3.4/jasmine_favicon.png">
     <link rel="stylesheet" href="lib/jasmine-2.3.4/jasmine.css">
+    <script src="lib/jasmine-2.3.4/jasmine.js"></script>
+    <script src="lib/jasmine-2.3.4/jasmine-html.js"></script>
+    <script src="lib/jasmine-2.3.4/boot.js"></script>
+
     <!-- include source files here... -->
     <script src="lib/sea.js"></script>
     <script type="text/javascript">
         seajs.config({
             alias: {
-                "jasmine": "jasmine-2.3.4/jasmine.js",
-                "jasmine-html": "jasmine-2.3.4/jasmine-html.js",
-                "boot": "jasmine-2.3.4/boot.js",
                 "resourceServiceSpec": "./spec/ResourceServiceSpec.js",
                 "store": "../../lib/store.min.js",
                 "localStorage": "../../js/common/LocalStorage.js",
@@ -21,7 +22,7 @@
                 "resourceService": "../../../js/service/ResourceService.js"
             }
         });
-        seajs.use(["jasmine", "jasmine-html", "boot", "resourceServiceSpec"]);
+        seajs.use(["resourceServiceSpec"]);
     </script>
 </head>
 <body>
