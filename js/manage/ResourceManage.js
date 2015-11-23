@@ -19,25 +19,25 @@ define(function (require, exports, module) {
         this.Error = false;
     }
 
-    rm.prototype.GetLocalStorageData = function (localStorageName) {
-        return resourceService.GetLocalStorageData(localStorageName);
+    rm.prototype.getLocalStorageData = function (localStorageName) {
+        return resourceService.getLocalStorageData(localStorageName);
     };
 
-    rm.prototype.SetLocalStorageData = function (localStorageName, data) {
-        resourceService.SetLocalStorageData(localStorageName, JSON.stringify(data));
+    rm.prototype.setLocalStorageData = function (localStorageName, data) {
+        resourceService.setLocalStorageData(localStorageName, JSON.stringify(data));
     };
 
-    rm.prototype.AddResource = function (localStorageName, addDataArr) {
+    rm.prototype.addResource = function (localStorageName, addDataArr) {
         var res = new CommonResult();
         try {
             var oldDataList = resourceService.GetLocalStorageData(localStorageName),
                 oldResourceList = oldDataList.ResourcesList,
                 oldLen = oldResourceList === undefined ? 0 : oldResourceList.length,
-                addResourcesList = resourceService.AddData(oldResourceList, addDataArr);
+                addResourcesList = resourceService.addData(oldResourceList, addDataArr);
 
             oldDataList.ResourcesList = addResourcesList;
             if (addResourcesList.length > oldLen) {
-                resourceService.SetLocalStorageData(localStorageName, JSON.stringify(oldDataList));
+                resourceService.setLocalStorageData(localStorageName, JSON.stringify(oldDataList));
                 res.Flag = true;
             } else {
                 res.Result = "添加失败";
@@ -50,15 +50,15 @@ define(function (require, exports, module) {
         return res;
     };
 
-    rm.prototype.DeleteResource = function (localStorageName, resourceId) {
+    rm.prototype.deleteResource = function (localStorageName, resourceId) {
         var res = new CommonResult();
         try {
             var oldDataList = resourceService.GetLocalStorageData(localStorageName),
                 oldResourceList = oldDataList.ResourcesList,
-                deleteResourcesList = resourceService.DeleteData(oldResourceList, resourceId);
+                deleteResourcesList = resourceService.deleteData(oldResourceList, resourceId);
 
             oldDataList.ResourcesList = deleteResourcesList;
-            resourceService.SetLocalStorageData(localStorageName, JSON.stringify(oldDataList));
+            resourceService.setLocalStorageData(localStorageName, JSON.stringify(oldDataList));
             res.Flag = true;
         } catch (ex) {
             res.Error = true;
@@ -72,9 +72,9 @@ define(function (require, exports, module) {
         try {
             var oldHistoryList = resourceService.GetLocalStorageData(localStorageName);
             var oldLen = (oldHistoryList === undefined || oldHistoryList === null) ? 0 : oldHistoryList.length;
-            var addHistoryList = resourceService.AddData(oldHistoryList, historyData);
+            var addHistoryList = resourceService.addData(oldHistoryList, historyData);
             if (addHistoryList.length > oldLen) {
-                resourceService.SetLocalStorageData(localStorageName, JSON.stringify(addHistoryList));
+                resourceService.setLocalStorageData(localStorageName, JSON.stringify(addHistoryList));
             }
         } catch (ex) {
         }

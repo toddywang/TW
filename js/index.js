@@ -207,12 +207,12 @@ define(function (require) {
             /**
              * 初始化存进去
              */
-            _cachePagerData_ = resourceManage.GetLocalStorageData(_localStorageAgentName_);
-            _cacheHistoryData_ = resourceManage.GetLocalStorageData(_localStorageHistoryName_);
+            _cachePagerData_ = resourceManage.getLocalStorageData(_localStorageAgentName_);
+            _cacheHistoryData_ = resourceManage.getLocalStorageData(_localStorageHistoryName_);
             if (_cachePagerData_ === null || _cachePagerData_ === undefined) {
                 require("agentResource");
                 _cachePagerData_ = AgentResource;
-                resourceManage.SetLocalStorageData(_localStorageAgentName_, AgentResource);
+                resourceManage.setLocalStorageData(_localStorageAgentName_, AgentResource);
             }
 
             /**
@@ -297,19 +297,19 @@ define(function (require) {
                     return;
                 }
 
-                var result = resourceManage.AddResource(_localStorageAgentName_, addDataArr);
+                var result = resourceManage.addResource(_localStorageAgentName_, addDataArr);
                 if (result.Error) {
                     alert(result.Result);
                     return;
                 }
 
-                var agentData = resourceManage.GetLocalStorageData(_localStorageAgentName_);
+                var agentData = resourceManage.getLocalStorageData(_localStorageAgentName_);
                 _cachePagerData_ = agentData;
                 if (result.Flag) {
                     try {
                         var addHistoryArr = CommonDealData.getHistoryList(_cachePagerData_, agentId, resource);
                         resourceManage.addHistory(_localStorageHistoryName_, addHistoryArr);
-                        var historyData = resourceManage.GetLocalStorageData(_localStorageHistoryName_);
+                        var historyData = resourceManage.getLocalStorageData(_localStorageHistoryName_);
                         _cacheHistoryData_ = historyData;
                     } catch (ex) {
                     }
@@ -327,19 +327,19 @@ define(function (require) {
              */
             window.deleteResource = function (obj) {
                 var resourceId = $(obj).attr("id");
-                var result = resourceManage.DeleteResource(_localStorageAgentName_, resourceId);
+                var result = resourceManage.deleteResource(_localStorageAgentName_, resourceId);
                 if (result.Error) {
                     alert(result.Result);
                     return;
                 }
 
-                var agentData = resourceManage.GetLocalStorageData(_localStorageAgentName_);
+                var agentData = resourceManage.getLocalStorageData(_localStorageAgentName_);
                 _cachePagerData_ = agentData;
                 if (result.Flag) {
                     try {
                         var addHistoryArr = CommonDealData.getHistoryList(_cachePagerData_, resourceId);
                         resourceManage.addHistory(_localStorageHistoryName_, addHistoryArr);
-                        var historyData = resourceManage.GetLocalStorageData(_localStorageHistoryName_);
+                        var historyData = resourceManage.getLocalStorageData(_localStorageHistoryName_);
                         _cacheHistoryData_ = historyData;
                     } catch (ex) {
                     }

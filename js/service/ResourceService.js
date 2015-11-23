@@ -14,15 +14,15 @@ define(function (require, exports, module) {
 
     rs = ResourceService;
 
-    rs.prototype.GetLocalStorageData = function (localStorageName) {
+    rs.prototype.getLocalStorageData = function (localStorageName) {
         return $.parseJSON(localStorage.getData(localStorageName));
     };
 
-    rs.prototype.SetLocalStorageData = function (name, data) {
+    rs.prototype.setLocalStorageData = function (name, data) {
         localStorage.setData(name, data);
     };
 
-    rs.prototype.DeleteData = function (data, keyId) {
+    rs.prototype.deleteData = function (data, keyId) {
         var _data_ = data;
         for (var i = 0, len = _data_.length; i < len; i++) {
             if (_data_[i].KeyID === parseInt(keyId, 10)) {
@@ -33,7 +33,7 @@ define(function (require, exports, module) {
         return _data_;
     };
 
-    rs.prototype.AddData = function (data, addDataArr) {
+    rs.prototype.addData = function (data, addDataArr) {
         var _data_ = data || [],
             maxKeyID = _.max(_data_, function (item) {
                 return item.KeyID;
