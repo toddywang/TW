@@ -30,7 +30,7 @@ define(function (require, exports, module) {
     rm.prototype.addResource = function (localStorageName, addDataArr) {
         var res = new CommonResult();
         try {
-            var oldDataList = resourceService.GetLocalStorageData(localStorageName),
+            var oldDataList = resourceService.getLocalStorageData(localStorageName),
                 oldResourceList = oldDataList.ResourcesList,
                 oldLen = oldResourceList === undefined ? 0 : oldResourceList.length,
                 addResourcesList = resourceService.addData(oldResourceList, addDataArr);
@@ -53,7 +53,7 @@ define(function (require, exports, module) {
     rm.prototype.deleteResource = function (localStorageName, resourceId) {
         var res = new CommonResult();
         try {
-            var oldDataList = resourceService.GetLocalStorageData(localStorageName),
+            var oldDataList = resourceService.getLocalStorageData(localStorageName),
                 oldResourceList = oldDataList.ResourcesList,
                 deleteResourcesList = resourceService.deleteData(oldResourceList, resourceId);
 
@@ -70,7 +70,7 @@ define(function (require, exports, module) {
 
     rm.prototype.addHistory = function (localStorageName, historyData) {
         try {
-            var oldHistoryList = resourceService.GetLocalStorageData(localStorageName);
+            var oldHistoryList = resourceService.getLocalStorageData(localStorageName);
             var oldLen = (oldHistoryList === undefined || oldHistoryList === null) ? 0 : oldHistoryList.length;
             var addHistoryList = resourceService.addData(oldHistoryList, historyData);
             if (addHistoryList.length > oldLen) {
