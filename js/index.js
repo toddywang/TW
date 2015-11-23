@@ -90,18 +90,15 @@ define(function (require) {
             return isVailDataList;
         },
         dealSummary: function (data, agentType) {
-            var resDataArr = [],
-                summaryArr = _summaryTypeOption_,
+            var resDataArr     = [],
+                summaryArr     = _summaryTypeOption_,
                 isVailDataList = commonPagerFunction.dealIsVailData(data, agentType);
 
             for (var i = 0, len = summaryArr.length; i < len; i++) {
                 var summaryObj = summaryArr[i];
                 var resDataObj = {
                     SummaryName: summaryObj.SummaryName,
-                    Num: _.where(isVailDataList, {
-                        SummaryType: summaryObj.SummaryType,
-                        IsDelete: 0
-                    }).length
+                    Num: _.where(isVailDataList, { SummaryType: summaryObj.SummaryType, IsDelete: 0 }).length
                 };
                 resDataArr.push(resDataObj);
             }
@@ -110,7 +107,7 @@ define(function (require) {
         },
         getHistoryData: function (data) {
             var newDataArr = [],
-                dataLen = data.length;
+                dataLen    = data.length;
             if (dataLen > 0) {
                 var sortData = data.sort(
                     function (a, b) {
@@ -156,7 +153,7 @@ define(function (require) {
     var CommonDealData = {
         getResourceList: function (resourceStr, agentId) {
             var resourceListArr = [],
-                resourceArr = resourceStr.split(',');
+                resourceArr     = resourceStr.split(',');
 
             for (var i = 0, len = resourceArr.length; i < len; i++) {
                 var resourceName = resourceArr[i];
@@ -175,9 +172,9 @@ define(function (require) {
         },
         getHistoryList: function (data, id, resource) {
             var historyListData = [],
-                nowDate = new Date().getTime(),
-                historyObj = {Word: "", Time: nowDate, AgentID: parseInt(id, 10), IsDelete: 0},
-                titleName = "";
+                nowDate         = new Date().getTime(),
+                historyObj      = {Word: "", Time: nowDate, AgentID: parseInt(id, 10), IsDelete: 0},
+                titleName       = "";
 
             if (resource !== undefined && resource !== "") {
                 titleName = _.where(data.AgentList, {KeyID: parseInt(id, 10), IsDelete: 0})[0].Name;
@@ -287,7 +284,7 @@ define(function (require) {
              */
             window.addResource = function (obj) {
                 var resource = $.trim($(obj).parents("div:first").find("[name='resource']").val()),
-                    agentId = $(obj).attr("agentId");
+                    agentId  = $(obj).attr("agentId");
 
                 if (resource === "") {
                     validateMsg($(obj).parents("div:first").find("[name='resource']"), "必填");
@@ -387,5 +384,4 @@ define(function (require) {
     $(function () {
         mainModule.main();
     });
-})
-;
+});
