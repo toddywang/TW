@@ -1,0 +1,196 @@
+/************************************************************************************
+smaller than 980
+*************************************************************************************/
+@media screen and (max-width: 980px) {
+
+    /* pagewrap */
+    #pagewrap {
+        width: 95%;
+    }
+
+    /* content */
+    #content {
+        width: 60%;
+        padding: 3% 4%;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+
+    .contentWidget .content {
+        width: 80%;
+    }
+
+    /* sidebar */
+    #sidebar {
+        width: 30%;
+    }
+
+    #sidebar .widget {
+        padding: 8% 7%;
+        margin-bottom: 10px;
+    }
+}
+
+/************************************************************************************
+smaller than 650
+*************************************************************************************/
+@media screen and (max-width: 768px) {
+
+    /* main nav */
+    #main-nav a {
+        padding: 12px 10px;
+    }
+
+    /* content */
+    #content {
+        width: auto;
+        float: none;
+        margin: 20px 0;
+        border: none;
+    }
+
+    /* sidebar */
+    #sidebar {
+        width: 100%;
+        margin: 0;
+        float: none;
+    }
+
+    #sidebar .widget {
+        padding: 3% 4%;
+        margin: 0 0 10px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .contentWidget .content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .contentWidget .img {
+        position: relative;
+        left: 50%;
+        margin-left: -30px;
+    }
+
+    #ulTip li {
+        margin-left: 3px;
+    }
+}
+
+/************************************************************************************
+smaller than 560
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+
+    /* 禁用iPhone中Safari的字号自动调整 */
+    html {
+        -webkit-text-size-adjust: none;
+    }
+
+    h4 {
+        font-size: 12px;
+    }
+
+    /* header */
+    #header {
+        height: auto;
+    }
+
+    #site-logo {
+        display: none;
+    }
+
+    /* main nav */
+    #main-nav {
+        position: static;
+        margin-top: 55px;
+    }
+
+    #main-nav li {
+        padding: 0;
+    }
+
+    #main-nav a, #main-nav a:hover, #main-nav a.active {
+        width: auto;
+        padding: 12px 10px;
+        margin-top: 2px;
+        margin-bottom: 5px;
+    }
+
+    #main-nav a.title, #main-nav a.title:hover {
+        color: #fff;
+    }
+
+    #ulTip {
+        position: fixed;
+        top: 0;
+        right: 0;
+        color: #fff;
+        border-bottom: 1px solid #e1e4e9;
+        background-color: #f0f0f0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    #ulTip li {
+        background: #b9b9b9;
+        text-align: center;
+        border: none;
+        border: 0;
+        float: left;
+        padding: 0;
+        margin-left: 5px;
+        width: 75px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        margin-top: 5px;
+        line-height: 40px;
+    }
+
+    #ulTip li:hover, #ulTip li.active {
+        background: #fff;
+    }
+
+    .contentWidget .img {
+        float: none;
+        /*margin-left: 50%;*/
+    }
+
+    .contentWidget h4 span {
+        font-weight: initial;
+        margin-left: 0;
+        display: block;
+    }
+
+    .contentWidget li {
+        font-size: 12px;
+    }
+
+    .contentWidget div.active {
+        display: block;
+        width: 250px;
+        height: 85px;
+    }
+
+    #nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    #main-nav li:first-child {
+        margin-left: 0;
+    }
+
+    #site-logo a {
+        font-size: 0.7em;
+    }
+}
+
